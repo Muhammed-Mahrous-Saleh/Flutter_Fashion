@@ -8,7 +8,7 @@ class Signin extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        padding: EdgeInsets.all(20),
+        padding: const EdgeInsets.all(20),
         height: MediaQuery.sizeOf(context).height,
         width: MediaQuery.sizeOf(context).width,
         child: Column(
@@ -36,8 +36,8 @@ class Signin extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(top: 50),
+            const Padding(
+              padding: EdgeInsets.only(top: 50),
               child: TextField(
                 decoration: InputDecoration(
                   labelText: 'Email',
@@ -50,8 +50,8 @@ class Signin extends StatelessWidget {
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(top: 10),
+            const Padding(
+              padding: EdgeInsets.only(top: 10),
               child: TextField(
                 decoration: InputDecoration(
                   labelText: 'Password',
