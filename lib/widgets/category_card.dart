@@ -6,11 +6,13 @@ class CategoryCard extends StatelessWidget {
   final int totalProducts;
   final String categoryName;
   final IconData fontIcon;
+  final int categoryIndex;
   const CategoryCard(
       {super.key,
       required this.totalProducts,
       required this.categoryName,
-      required this.fontIcon});
+      required this.fontIcon,
+      required this.categoryIndex});
 // FontAwesomeIcons.cartArrowDown
   @override
   Widget build(BuildContext context) {
@@ -26,7 +28,8 @@ class CategoryCard extends StatelessWidget {
             Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) => const ProductsScreen()));
+                    builder: (context) =>
+                        ProductsScreen(categoryIndex: categoryIndex)));
           },
           child: Padding(
             padding: EdgeInsets.symmetric(vertical: 25, horizontal: 5),

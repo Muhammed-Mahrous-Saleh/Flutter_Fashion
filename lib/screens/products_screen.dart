@@ -9,9 +9,8 @@ import 'package:fashions/screens/categories_screen.dart';
 import 'package:fashions/screens/cart_screen.dart';
 
 class ProductsScreen extends StatelessWidget {
-  const ProductsScreen({super.key});
-
-  static List<Product> products = categoriesData[0].products;
+  final int categoryIndex;
+  const ProductsScreen({super.key, required this.categoryIndex});
 
   final int _selectedIndex = 0;
 
@@ -62,11 +61,11 @@ class ProductsScreen extends StatelessWidget {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Padding(
-            padding: EdgeInsets.all(16.0),
+          Padding(
+            padding: const EdgeInsets.all(16.0),
             child: Text(
-              "Clothes",
-              style: TextStyle(
+              categoriesData[categoryIndex].title,
+              style: const TextStyle(
                   color: Colors.black,
                   fontWeight: FontWeight.bold,
                   fontSize: 24),
@@ -82,9 +81,10 @@ class ProductsScreen extends StatelessWidget {
                   mainAxisSpacing: 10,
                   childAspectRatio: 0.65,
                 ),
-                itemCount: products.length,
+                itemCount: categoriesData[categoryIndex].products.length,
                 itemBuilder: (context, index) {
-                  return ProductCard(product: products[index]);
+                  return ProductCard(
+                      product: categoriesData[categoryIndex].products[index]);
                 },
               ),
             ),

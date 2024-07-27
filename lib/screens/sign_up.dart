@@ -2,6 +2,8 @@ import 'package:fashions/screens/signin.dart';
 import 'package:fashions/screens/successful.dart';
 import 'package:fashions/styles/icons.dart';
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
+import 'package:fashions/data/user_model.dart';
 // import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class SignUp extends StatefulWidget {
@@ -13,9 +15,46 @@ class SignUp extends StatefulWidget {
 
 class _SignUpState extends State<SignUp> {
   bool _isChecked = false;
+
   final _formKey = GlobalKey<FormState>();
+  final TextEditingController _usernameController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _repPasswordController = TextEditingController();
+
+  Future<void> _register() async {
+    final email = _emailController.text;
+    final password = _passwordController.text;
+
+    final userBox = Hive.box<User>('users');
+
+    // Use a default user with placeholder values
+    final placeholderUser = User(email: '', password: '');
+
+    // Check if the user already exists
+    final existingUser = userBox.values.firstWhere(
+      (user) => user.email == email,
+      orElse: () => placeholderUser,
+    );
+
+    if (existingUser.email.isNotEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Email already exists')),
+      );
+    } else {
+      final newUser = User(email: email, password: password);
+      await userBox.add(newUser);
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('User registered successfully')),
+      );
+      Navigator.pushAndRemoveUntil(
+        context,
+        MaterialPageRoute(builder: (context) => const Successful()),
+        ModalRoute.withName('//'),
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -78,6 +117,7 @@ class _SignUpState extends State<SignUp> {
                       ),
                       const SizedBox(height: 40),
                       TextFormField(
+                        controller: _usernameController,
                         validator: (value) {
                           if (value!.isEmpty) {
                             return "User name must not be empty.";
@@ -104,6 +144,7 @@ class _SignUpState extends State<SignUp> {
                       ),
                       const SizedBox(height: 5),
                       TextFormField(
+                        controller: _emailController,
                         validator: (value) {
                           if (value!.isEmpty) {
                             return "Email must not be empty.";
@@ -216,12 +257,7 @@ class _SignUpState extends State<SignUp> {
                           onPressed: () {
                             if (_formKey.currentState!.validate() &&
                                 _isChecked) {
-                              Navigator.pushAndRemoveUntil(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const Successful()),
-                                ModalRoute.withName('//'),
-                              );
+                              _register();
                             }
                           },
                           child: const Padding(

@@ -3,6 +3,8 @@ import 'package:fashions/screens/sign_up.dart';
 import 'package:fashions/styles/icons.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:hive/hive.dart';
+import 'package:fashions/data/user_model.dart';
 
 class Signin extends StatefulWidget {
   const Signin({super.key});
@@ -13,6 +15,35 @@ class Signin extends StatefulWidget {
 
 class _SigninState extends State<Signin> {
   final _formKey = GlobalKey<FormState>();
+  final _useremailController = TextEditingController();
+  final _passwordController = TextEditingController();
+
+  Future<void> _login() async {
+    final email = _useremailController.text;
+    final password = _passwordController.text;
+
+    final userBox = Hive.box<User>('users');
+    final sessionBox = Hive.box('session');
+
+    final user = userBox.values.firstWhere(
+      (user) => user.email == email && user.password == password,
+      orElse: () => User(email: '', password: ''),
+    );
+
+    if (user.email.isNotEmpty) {
+      await sessionBox.put('isLoggedIn', true);
+      Navigator.pushAndRemoveUntil(
+        // ignore: use_build_context_synchronously
+        context,
+        MaterialPageRoute(builder: (context) => const Categories()),
+        ModalRoute.withName('//'),
+      );
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Invalid email or password')),
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -78,6 +109,7 @@ class _SigninState extends State<Signin> {
                         children: [
                           const SizedBox(height: 40),
                           TextFormField(
+                            controller: _useremailController,
                             validator: (value) {
                               if (value!.isEmpty) {
                                 return "Email must not be empty.";
@@ -104,6 +136,7 @@ class _SigninState extends State<Signin> {
                           ),
                           const SizedBox(height: 10),
                           TextFormField(
+                            controller: _passwordController,
                             validator: (value) {
                               if (value!.isEmpty) {
                                 return "Email must not be empty.";
@@ -142,6 +175,7 @@ class _SigninState extends State<Signin> {
                                   ),
                                   onPressed: () {
                                     if (_formKey.currentState!.validate()) {
+                                      _login();
                                       Navigator.pushAndRemoveUntil(
                                         context,
                                         MaterialPageRoute(
