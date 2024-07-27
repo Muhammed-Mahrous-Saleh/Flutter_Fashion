@@ -66,12 +66,6 @@ List<Map<String, dynamic>> _categoriesDataList = [
         description: 'Irregular Rib Skirt',
         price: 345.00,
       ),
-      Product(
-        imageUrl: 'https://via.placeholder.com/150',
-        name: 'Madewell',
-        description: 'Giselle Top in White Linen',
-        price: 69.50,
-      ),
     ]
   },
   {
@@ -102,6 +96,12 @@ List<Map<String, dynamic>> _categoriesDataList = [
         description: 'Giselle Top in White Linen',
         price: 69.50,
       ),
+      Product(
+        imageUrl: 'https://via.placeholder.com/150',
+        name: 'Madewell',
+        description: 'Giselle Top in White Linen',
+        price: 69.50,
+      ),
     ]
   },
   {
@@ -113,6 +113,24 @@ List<Map<String, dynamic>> _categoriesDataList = [
         name: 'Roller Rabbit',
         description: 'Vado Odelle Dress',
         price: 198.00,
+      ),
+      Product(
+        imageUrl: 'https://via.placeholder.com/150',
+        name: 'endless rose',
+        description: 'Bubble Elastic T-shirt',
+        price: 50.00,
+      ),
+      Product(
+        imageUrl: 'https://via.placeholder.com/150',
+        name: 'Theory',
+        description: 'Irregular Rib Skirt',
+        price: 345.00,
+      ),
+      Product(
+        imageUrl: 'https://via.placeholder.com/150',
+        name: 'Madewell',
+        description: 'Giselle Top in White Linen',
+        price: 69.50,
       ),
       Product(
         imageUrl: 'https://via.placeholder.com/150',
@@ -162,6 +180,36 @@ List<Map<String, dynamic>> _categoriesDataList = [
         description: 'Giselle Top in White Linen',
         price: 69.50,
       ),
+      Product(
+        imageUrl: 'https://via.placeholder.com/150',
+        name: 'Roller Rabbit',
+        description: 'Vado Odelle Dress',
+        price: 198.00,
+      ),
+      Product(
+        imageUrl: 'https://via.placeholder.com/150',
+        name: 'endless rose',
+        description: 'Bubble Elastic T-shirt',
+        price: 50.00,
+      ),
+      Product(
+        imageUrl: 'https://via.placeholder.com/150',
+        name: 'Theory',
+        description: 'Irregular Rib Skirt',
+        price: 345.00,
+      ),
+      Product(
+        imageUrl: 'https://via.placeholder.com/150',
+        name: 'Madewell',
+        description: 'Giselle Top in White Linen',
+        price: 69.50,
+      ),
+      Product(
+        imageUrl: 'https://via.placeholder.com/150',
+        name: 'Madewell',
+        description: 'Giselle Top in White Linen',
+        price: 69.50,
+      ),
     ]
   },
   {
@@ -185,6 +233,30 @@ List<Map<String, dynamic>> _categoriesDataList = [
         name: 'Theory',
         description: 'Irregular Rib Skirt',
         price: 345.00,
+      ),
+      Product(
+        imageUrl: 'https://via.placeholder.com/150',
+        name: 'Madewell',
+        description: 'Giselle Top in White Linen',
+        price: 69.50,
+      ),
+      Product(
+        imageUrl: 'https://via.placeholder.com/150',
+        name: 'Madewell',
+        description: 'Giselle Top in White Linen',
+        price: 69.50,
+      ),
+      Product(
+        imageUrl: 'https://via.placeholder.com/150',
+        name: 'Madewell',
+        description: 'Giselle Top in White Linen',
+        price: 69.50,
+      ),
+      Product(
+        imageUrl: 'https://via.placeholder.com/150',
+        name: 'Madewell',
+        description: 'Giselle Top in White Linen',
+        price: 69.50,
       ),
       Product(
         imageUrl: 'https://via.placeholder.com/150',
