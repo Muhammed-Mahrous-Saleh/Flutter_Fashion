@@ -1,3 +1,4 @@
+import 'package:fashions/screens/products_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -22,10 +23,10 @@ class CategoryCard extends StatelessWidget {
             backgroundColor: WidgetStateProperty.all(Colors.black),
           ),
           onPressed: () {
-            // Navigator.push(
-            //     context,
-            //     MaterialPageRoute(
-            //         builder: (context) => const Categories()));
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const ProductsScreen()));
           },
           child: Padding(
             padding: EdgeInsets.symmetric(vertical: 25, horizontal: 5),

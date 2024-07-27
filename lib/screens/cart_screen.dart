@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-class SearchScreen extends StatelessWidget {
-  const SearchScreen({super.key});
-
+class CartScreen extends StatelessWidget {
+  const CartScreen({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        title: Text('Cart'),
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
           onPressed: () {
@@ -15,7 +15,7 @@ class SearchScreen extends StatelessWidget {
           },
         ),
       ),
-      body: Center(child: Text("Search Screen")),
+      body: Center(child: Text('Cart Screen')),
     );
   }
 }

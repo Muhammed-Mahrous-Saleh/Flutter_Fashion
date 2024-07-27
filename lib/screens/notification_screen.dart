@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-class SearchScreen extends StatelessWidget {
-  const SearchScreen({super.key});
-
+class NotificationsScreen extends StatelessWidget {
+  const NotificationsScreen({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        title: Text('Notifications'),
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
           onPressed: () {
@@ -15,7 +15,7 @@ class SearchScreen extends StatelessWidget {
           },
         ),
       ),
-      body: Center(child: Text("Search Screen")),
+      body: Center(child: Text('Notifications Screen')),
     );
   }
 }
