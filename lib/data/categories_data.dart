@@ -7,10 +7,40 @@ List<Map<String, dynamic>> _categoriesDataList = [
     "title": "New Arrivals",
     "products": [
       Product(
-        image: "",
-        name: "Product 1",
-        description: "product 1 description",
-        price: 50.0,
+        imageUrl: 'https://via.placeholder.com/150',
+        name: 'Roller Rabbit',
+        description: 'Vado Odelle Dress',
+        price: 198.00,
+      ),
+      Product(
+        imageUrl: 'https://via.placeholder.com/150',
+        name: 'endless rose',
+        description: 'Bubble Elastic T-shirt',
+        price: 50.00,
+      ),
+      Product(
+        imageUrl: 'https://via.placeholder.com/150',
+        name: 'Theory',
+        description: 'Irregular Rib Skirt',
+        price: 345.00,
+      ),
+      Product(
+        imageUrl: 'https://via.placeholder.com/150',
+        name: 'Madewell',
+        description: 'Giselle Top in White Linen',
+        price: 69.50,
+      ),
+      Product(
+        imageUrl: 'https://via.placeholder.com/150',
+        name: 'Roller Rabbit',
+        description: 'Vado Odelle Dress',
+        price: 198.00,
+      ),
+      Product(
+        imageUrl: 'https://via.placeholder.com/150',
+        name: 'endless rose',
+        description: 'Bubble Elastic T-shirt',
+        price: 50.00,
       ),
     ]
   },
@@ -19,17 +49,29 @@ List<Map<String, dynamic>> _categoriesDataList = [
     "title": "Clothes",
     "products": [
       Product(
-        image: "",
-        name: "Product 2",
-        description: "product 2 description",
-        price: 55.0,
+        imageUrl: 'https://via.placeholder.com/150',
+        name: 'Roller Rabbit',
+        description: 'Vado Odelle Dress',
+        price: 198.00,
       ),
       Product(
-        image: "",
-        name: "Product 2",
-        description: "product 2 description",
-        price: 55.0,
-      )
+        imageUrl: 'https://via.placeholder.com/150',
+        name: 'endless rose',
+        description: 'Bubble Elastic T-shirt',
+        price: 50.00,
+      ),
+      Product(
+        imageUrl: 'https://via.placeholder.com/150',
+        name: 'Theory',
+        description: 'Irregular Rib Skirt',
+        price: 345.00,
+      ),
+      Product(
+        imageUrl: 'https://via.placeholder.com/150',
+        name: 'Madewell',
+        description: 'Giselle Top in White Linen',
+        price: 69.50,
+      ),
     ]
   },
   {
@@ -37,10 +79,28 @@ List<Map<String, dynamic>> _categoriesDataList = [
     "title": "Bags",
     "products": [
       Product(
-        image: "",
-        name: "Product 3",
-        description: "product 3 description",
-        price: 60.0,
+        imageUrl: 'https://via.placeholder.com/150',
+        name: 'Roller Rabbit',
+        description: 'Vado Odelle Dress',
+        price: 198.00,
+      ),
+      Product(
+        imageUrl: 'https://via.placeholder.com/150',
+        name: 'endless rose',
+        description: 'Bubble Elastic T-shirt',
+        price: 50.00,
+      ),
+      Product(
+        imageUrl: 'https://via.placeholder.com/150',
+        name: 'Theory',
+        description: 'Irregular Rib Skirt',
+        price: 345.00,
+      ),
+      Product(
+        imageUrl: 'https://via.placeholder.com/150',
+        name: 'Madewell',
+        description: 'Giselle Top in White Linen',
+        price: 69.50,
       ),
     ]
   },
@@ -49,10 +109,28 @@ List<Map<String, dynamic>> _categoriesDataList = [
     "title": "Shoes",
     "products": [
       Product(
-        image: "",
-        name: "Product 4",
-        description: "product 4 description",
-        price: 65.0,
+        imageUrl: 'https://via.placeholder.com/150',
+        name: 'Roller Rabbit',
+        description: 'Vado Odelle Dress',
+        price: 198.00,
+      ),
+      Product(
+        imageUrl: 'https://via.placeholder.com/150',
+        name: 'endless rose',
+        description: 'Bubble Elastic T-shirt',
+        price: 50.00,
+      ),
+      Product(
+        imageUrl: 'https://via.placeholder.com/150',
+        name: 'Theory',
+        description: 'Irregular Rib Skirt',
+        price: 345.00,
+      ),
+      Product(
+        imageUrl: 'https://via.placeholder.com/150',
+        name: 'Madewell',
+        description: 'Giselle Top in White Linen',
+        price: 69.50,
       ),
     ]
   },
@@ -61,10 +139,28 @@ List<Map<String, dynamic>> _categoriesDataList = [
     "title": "Electronics",
     "products": [
       Product(
-        image: "",
-        name: "Product 5",
-        description: "product 5 description",
-        price: 70.0,
+        imageUrl: 'https://via.placeholder.com/150',
+        name: 'Roller Rabbit',
+        description: 'Vado Odelle Dress',
+        price: 198.00,
+      ),
+      Product(
+        imageUrl: 'https://via.placeholder.com/150',
+        name: 'endless rose',
+        description: 'Bubble Elastic T-shirt',
+        price: 50.00,
+      ),
+      Product(
+        imageUrl: 'https://via.placeholder.com/150',
+        name: 'Theory',
+        description: 'Irregular Rib Skirt',
+        price: 345.00,
+      ),
+      Product(
+        imageUrl: 'https://via.placeholder.com/150',
+        name: 'Madewell',
+        description: 'Giselle Top in White Linen',
+        price: 69.50,
       ),
     ]
   },
@@ -73,10 +169,28 @@ List<Map<String, dynamic>> _categoriesDataList = [
     "title": "Jewelery",
     "products": [
       Product(
-        image: "",
-        name: "Product 6",
-        description: "product 6 description",
-        price: 75.0,
+        imageUrl: 'https://via.placeholder.com/150',
+        name: 'Roller Rabbit',
+        description: 'Vado Odelle Dress',
+        price: 198.00,
+      ),
+      Product(
+        imageUrl: 'https://via.placeholder.com/150',
+        name: 'endless rose',
+        description: 'Bubble Elastic T-shirt',
+        price: 50.00,
+      ),
+      Product(
+        imageUrl: 'https://via.placeholder.com/150',
+        name: 'Theory',
+        description: 'Irregular Rib Skirt',
+        price: 345.00,
+      ),
+      Product(
+        imageUrl: 'https://via.placeholder.com/150',
+        name: 'Madewell',
+        description: 'Giselle Top in White Linen',
+        price: 69.50,
       ),
     ]
   },
@@ -128,13 +242,13 @@ class Category {
 }
 
 class Product {
-  final String image;
+  final String imageUrl;
   final String name;
   final String description;
   final double price;
 
   Product({
-    required this.image,
+    required this.imageUrl,
     required this.name,
     required this.description,
     required this.price,
@@ -143,7 +257,7 @@ class Product {
   // Factory constructor to create a Product from a map
   factory Product.fromMap(Map<String, dynamic> map) {
     return Product(
-      image: map['image'],
+      imageUrl: map['image'],
       name: map['name'],
       description: map['description'],
       price: map['price'].toDouble(),
@@ -152,7 +266,7 @@ class Product {
 
   factory Product.fromJson(Map<String, dynamic> json) {
     return Product(
-      image: json['image'],
+      imageUrl: json['image'],
       name: json['name'],
       description: json['description'],
       price: json['price'].toDouble(),
@@ -161,7 +275,7 @@ class Product {
 
   Map<String, dynamic> toJson() {
     return {
-      'image': image,
+      'imageUrl': imageUrl,
       'name': name,
       'description': description,
       'price': price,

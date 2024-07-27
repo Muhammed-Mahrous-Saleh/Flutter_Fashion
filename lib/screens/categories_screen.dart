@@ -1,5 +1,6 @@
 import 'package:fashions/screens/notification_screen.dart';
 import 'package:fashions/screens/profile_screen.dart';
+import 'package:fashions/widgets/bottom_navbar.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:fashions/data/categories_data.dart';
@@ -7,15 +8,10 @@ import 'package:fashions/screens/search_screen.dart';
 import 'package:fashions/screens/cart_screen.dart';
 import 'package:fashions/widgets/category_card.dart';
 
-class Categories extends StatefulWidget {
+class Categories extends StatelessWidget {
   const Categories({super.key});
 
-  @override
-  State<Categories> createState() => _CategoriesState();
-}
-
-class _CategoriesState extends State<Categories> {
-  int _selectedIndex = 0;
+  final int _selectedIndex = 0;
 
   static const List<Widget> _screens = <Widget>[
     Categories(),
@@ -24,14 +20,12 @@ class _CategoriesState extends State<Categories> {
     ProfileScreen(),
   ];
 
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => _screens[index]),
-      );
-    });
+  void _onItemTapped(int index, context) {
+    if (index == _selectedIndex) return;
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => _screens[index]),
+    );
   }
 
   @override
@@ -84,158 +78,12 @@ class _CategoriesState extends State<Categories> {
           ),
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        items: <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: _selectedIndex == 0
-                ? Container(
-                    padding: EdgeInsets.only(right: 8),
-                    decoration: BoxDecoration(
-                      color: Colors.grey,
-                      borderRadius: BorderRadius.circular(30.0),
-                    ),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Container(
-                          width: 40,
-                          height: 40,
-                          decoration: BoxDecoration(
-                            color: Colors.black,
-                            shape: BoxShape.circle,
-                          ),
-                          child: Icon(
-                            Icons.home,
-                            color: Colors.white,
-                          ),
-                        ),
-                        SizedBox(width: 5),
-                        Text(
-                          'Home',
-                          style: TextStyle(color: Colors.black),
-                        ),
-                      ],
-                    ),
-                  )
-                : Icon(Icons.home),
-            label: '',
-          ),
-          BottomNavigationBarItem(
-            icon: _selectedIndex == 1
-                ? Container(
-                    padding: EdgeInsets.only(right: 8),
-                    decoration: BoxDecoration(
-                      color: Colors.grey,
-                      borderRadius: BorderRadius.circular(30.0),
-                    ),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Container(
-                          width: 40,
-                          height: 40,
-                          decoration: BoxDecoration(
-                            color: Colors.black,
-                            shape: BoxShape.circle,
-                          ),
-                          child: Icon(
-                            Icons.shopping_cart,
-                            color: Colors.white,
-                          ),
-                        ),
-                        SizedBox(width: 5),
-                        Text(
-                          'Cart',
-                          style: TextStyle(color: Colors.black),
-                        ),
-                      ],
-                    ),
-                  )
-                : Icon(Icons.shopping_cart),
-            label: '',
-          ),
-          BottomNavigationBarItem(
-            icon: _selectedIndex == 2
-                ? Container(
-                    padding: EdgeInsets.only(right: 8),
-                    decoration: BoxDecoration(
-                      color: Colors.grey,
-                      borderRadius: BorderRadius.circular(30.0),
-                    ),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Container(
-                          width: 40,
-                          height: 40,
-                          decoration: BoxDecoration(
-                            color: Colors.black,
-                            shape: BoxShape.circle,
-                          ),
-                          child: Icon(
-                            Icons.notifications,
-                            color: Colors.white,
-                          ),
-                        ),
-                        SizedBox(width: 5),
-                        Text(
-                          'Alerts',
-                          style: TextStyle(color: Colors.black),
-                        ),
-                      ],
-                    ),
-                  )
-                : Icon(Icons.notifications),
-            label: '',
-          ),
-          BottomNavigationBarItem(
-            icon: _selectedIndex == 3
-                ? Container(
-                    padding: EdgeInsets.only(right: 8),
-                    decoration: BoxDecoration(
-                      color: Colors.grey,
-                      borderRadius: BorderRadius.circular(30.0),
-                    ),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Container(
-                          width: 40,
-                          height: 40,
-                          decoration: BoxDecoration(
-                            color: Colors.black,
-                            shape: BoxShape.circle,
-                          ),
-                          child: Icon(
-                            Icons.person,
-                            color: Colors.white,
-                          ),
-                        ),
-                        SizedBox(width: 5),
-                        Text(
-                          'Profile',
-                          style: TextStyle(color: Colors.black),
-                        ),
-                      ],
-                    ),
-                  )
-                : Icon(Icons.person),
-            label: '',
-          ),
-        ],
-        currentIndex: _selectedIndex,
-        selectedItemColor: Colors.black,
-        unselectedItemColor: Colors.grey,
-        onTap: _onItemTapped,
+      bottomNavigationBar: BottomNavBar(
+        selectedIndex: _selectedIndex,
+        onItemTapped: (int index) {
+          _onItemTapped(index, context);
+        },
       ),
     );
   }
 }
-
-// Dummy Screens for navigation
-
-
-
-
-
