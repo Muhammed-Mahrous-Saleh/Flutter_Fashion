@@ -37,6 +37,7 @@ class Categories extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // show loader till check the login status
     return FutureBuilder<bool>(
         future: _checkLoginStatus(),
         builder: (context, snapshot) {
@@ -47,7 +48,7 @@ class Categories extends StatelessWidget {
               ),
             );
           }
-
+          // if user not logged in go to signin screen
           if (!snapshot.data!) {
             Future.microtask(() {
               Navigator.pushReplacement(
@@ -57,6 +58,7 @@ class Categories extends StatelessWidget {
             });
             return Container();
           }
+          // if user logged in show category screen
           return Scaffold(
             appBar: AppBar(
               actions: [
