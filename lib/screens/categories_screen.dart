@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:fashions/data/categories_data.dart';
 import 'package:fashions/screens/search_screen.dart';
 import 'package:fashions/screens/cart_screen.dart';
-import 'package:fashions/widgets/category_card.dart';
+import 'package:fashions/widgets/category_icon_card.dart';
 import 'package:hive/hive.dart';
 
 class Categories extends StatelessWidget {
@@ -78,10 +78,10 @@ class Categories extends StatelessWidget {
                 })
               ],
             ),
-            body: SingleChildScrollView(
-              child: SizedBox(
-                height: MediaQuery.of(context).size.height - 165,
-                width: MediaQuery.of(context).size.width,
+            body: SizedBox(
+              height: MediaQuery.of(context).size.height - 165,
+              width: MediaQuery.of(context).size.width,
+              child: SingleChildScrollView(
                 child: Padding(
                   padding:
                       const EdgeInsets.symmetric(vertical: 10, horizontal: 15),

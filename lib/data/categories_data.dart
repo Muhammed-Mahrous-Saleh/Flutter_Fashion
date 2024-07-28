@@ -3,6 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 List<Map<String, dynamic>> _categoriesDataList = [
   {
+    "imageUrl": 'assets/images/new.jpeg',
     "iconData": FontAwesomeIcons.cartArrowDown,
     "title": "New Arrivals",
     "products": [
@@ -45,6 +46,7 @@ List<Map<String, dynamic>> _categoriesDataList = [
     ]
   },
   {
+    "imageUrl": 'assets/images/clothes.jpg',
     "iconData": FontAwesomeIcons.shirt,
     "title": "Clothes",
     "products": [
@@ -69,6 +71,7 @@ List<Map<String, dynamic>> _categoriesDataList = [
     ]
   },
   {
+    "imageUrl": 'assets/images/bags.jpg',
     "iconData": FontAwesomeIcons.bagShopping,
     "title": "Bags",
     "products": [
@@ -105,6 +108,7 @@ List<Map<String, dynamic>> _categoriesDataList = [
     ]
   },
   {
+    "imageUrl": 'assets/images/shoes.jpg',
     "iconData": FontAwesomeIcons.shoePrints,
     "title": "Shoes",
     "products": [
@@ -153,6 +157,7 @@ List<Map<String, dynamic>> _categoriesDataList = [
     ]
   },
   {
+    "imageUrl": 'assets/images/electronics.jpeg',
     "iconData": FontAwesomeIcons.plug,
     "title": "Electronics",
     "products": [
@@ -213,6 +218,7 @@ List<Map<String, dynamic>> _categoriesDataList = [
     ]
   },
   {
+    "imageUrl": 'assets/images/jewelery.jpg',
     "iconData": FontAwesomeIcons.solidGem,
     "title": "Jewelery",
     "products": [
@@ -273,11 +279,13 @@ List<Category> categoriesData =
     _categoriesDataList.map((map) => Category.fromMap(map)).toList();
 
 class Category {
+  final String imageUrl;
   final IconData iconData;
   final String title;
   final List<Product> products;
 
   Category({
+    required this.imageUrl,
     required this.iconData,
     required this.title,
     required this.products,
@@ -286,6 +294,7 @@ class Category {
   // Factory constructor to create a Category from a map
   factory Category.fromMap(Map<String, dynamic> map) {
     return Category(
+      imageUrl: map['imageUrl'],
       iconData: map['iconData'],
       title: map['title'],
       products: (map['products'] as List)
@@ -296,6 +305,7 @@ class Category {
 
   factory Category.fromJson(Map<String, dynamic> json) {
     return Category(
+      imageUrl: json['imageUrl'],
       iconData: json['iconData'],
       title: json['title'],
       products: (json['products'] as List)
@@ -306,6 +316,7 @@ class Category {
 
   Map<String, dynamic> toJson() {
     return {
+      'imageUrl': imageUrl,
       'iconData': iconData,
       'title': title,
       'products': products.map((product) => product.toJson()).toList(),

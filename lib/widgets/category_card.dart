@@ -1,66 +1,82 @@
+import 'package:fashions/data/categories_data.dart';
 import 'package:fashions/screens/products_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class CategoryCard extends StatelessWidget {
-  final int totalProducts;
-  final String categoryName;
-  final IconData fontIcon;
+  final Category category;
   final int categoryIndex;
+
   const CategoryCard(
-      {super.key,
-      required this.totalProducts,
-      required this.categoryName,
-      required this.fontIcon,
-      required this.categoryIndex});
-// FontAwesomeIcons.cartArrowDown
+      {super.key, required this.category, required this.categoryIndex});
+
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 20),
-      child: SizedBox(
-        width: double.infinity,
-        child: ElevatedButton(
-          style: ButtonStyle(
-            backgroundColor: WidgetStateProperty.all(Colors.black),
-          ),
-          onPressed: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) =>
-                        ProductsScreen(categoryIndex: categoryIndex)));
-          },
-          child: Padding(
-            padding: EdgeInsets.symmetric(vertical: 25, horizontal: 5),
-            child: Row(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                SizedBox(
-                  width: 35,
-                  child: FaIcon(
-                    fontIcon, // Replaced icon
-                    color: Colors.white,
-                    size: 30,
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) =>
+                    ProductsScreen(categoryIndex: categoryIndex)));
+      },
+      child: Card(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(15.0),
+        ),
+        // onPressed: () {
+        //       Navigator.push(
+        //           context,
+        //           MaterialPageRoute(
+        //               builder: (context) =>
+        //                   ProductsScreen(categoryIndex: categoryIndex)));
+        //     },
+        child: Stack(
+          children: [
+            ClipRRect(
+              borderRadius: const BorderRadius.all(Radius.circular(15.0)),
+              child: Image.asset(
+                category.imageUrl,
+                height: 200,
+                width: double.infinity,
+                fit: BoxFit.cover,
+              ),
+            ),
+            Positioned(
+              bottom: 0,
+              left: 0,
+              right: 0,
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Colors.black.withOpacity(0.5),
+                  borderRadius: const BorderRadius.only(
+                    bottomLeft: Radius.circular(15.0),
+                    bottomRight: Radius.circular(15.0),
                   ),
                 ),
-                const SizedBox(width: 20),
-                Text(
-                  categoryName,
-                  style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold),
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      category.title,
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                      ),
+                    ),
+                    Text(
+                      '${category.products.length} Products',
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 14,
+                      ),
+                    ),
+                  ],
                 ),
-                const Spacer(),
-                Text(
-                  "$totalProducts Products",
-                  style: const TextStyle(color: Colors.white, fontSize: 16),
-                )
-              ],
+              ),
             ),
-          ),
+          ],
         ),
       ),
     );
